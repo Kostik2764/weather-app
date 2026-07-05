@@ -1,0 +1,38 @@
+name: Build
+permissions:
+  contents: read
+
+on: push
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+
+  quality:
+    runs-on: ubuntu-latest
+    needs: install
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Qlty CLI
+        run: |
+          curl -fsSL https://qlty.sh | bash
+          echo "$HOME/.qlty/bin" >> "$GITHUB_PATH"
+      - name: Initialize Qlty
+        run: qlty init --yes
+      - name: Run Qlty quality check
+        run: qlty check
