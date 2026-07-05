@@ -1,0 +1,41 @@
+<%- include('../partials/head') %>
+<h2>Погода</h2>
+<div class="input-group mb-3">
+    <input type="text" id="cityInput" class="form-control" placeholder="Введите город...">
+    <button class="btn btn-primary" id="searchBtn">Поиск</button>
+</div>
+<div id="weatherResult" class="row mt-4"></div>
+
+<script>
+document.getElementById('searchBtn').addEventListener('click', fetchWeather);
+document.getElementById('cityInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') fetchWeather();
+});
+
+async function fetchWeather() {
+    const city = document.getElementById('cityInput').value.trim();
+    if (!city) return;
+    const resp = await fetch(`/weather?city=${city}`);
+    const data = await resp.json();
+    if (data.error) {
+        document.getElementById('weatherResult').innerHTML = `<div class="alert alert-danger">${data.error}</div>`;
+        return;
+    }
+    document.getElementById('weatherResult').innerHTML = `
+        <div class="col-12">
+            <h3>${data.city}</h3>
+            <p>Температура: ${data.current.main.temp}°C, ${data.current.weather[0].description}</p>
+            <button class="btn btn-sm btn-outline-secondary" onclick="addFavorite('${data.city}')">Добавить в избранное</button>
+        </div>
+    `;
+}
+async function addFavorite(city) {
+    await fetch('/favorites', { 
+        method: 'POST', 
+        headers: { 'Content-Type': 'application/json' }, 
+        body: JSON.stringify({city}) 
+    });
+    alert('Город добавлен в избранное!');
+}
+</script>
+<%- include('../partials/footer') %>

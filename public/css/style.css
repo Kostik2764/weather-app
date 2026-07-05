@@ -1,0 +1,27 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f4f8;
+    font-family: 'Inter', sans-serif;
+}
+
+main.container {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+.navbar-brand i {
+    margin-right: 8px;
+}
+
+.navbar {
+    margin-bottom: 0 !important;
+}
