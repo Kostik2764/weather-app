@@ -1,0 +1,10 @@
+<%- include('../partials/head') %>
+<h2>Вход</h2>
+<% if (typeof error !== 'undefined' && error) { %><div class="alert alert-danger"><%= error %></div><% } %>
+<form method="POST" action="/login">
+    <div class="mb-3"><input name="username" class="form-control" placeholder="Имя пользователя" required></div>
+    <div class="mb-3"><input type="password" name="password" class="form-control" placeholder="Пароль" required></div>
+    <button class="btn btn-primary">Войти</button>
+    <a href="/register" class="btn btn-link">Регистрация</a>
+</form>
+<%- include('../partials/footer') %>
