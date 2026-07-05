@@ -1,0 +1,15 @@
+<%- include('../partials/head') %>
+<h2>Избранные города пользователя: <%= user.username %></h2>
+<% if (cities.length === 0) { %>
+    <p>Нет избранных городов</p>
+<% } else { %>
+    <ul class="list-group">
+    <% cities.forEach(city => { %>
+        <li class="list-group-item">
+            <strong><%= city.city_name %></strong> – добавлен <%= city.added_at %>
+        </li>
+    <% }) %>
+    </ul>
+<% } %>
+<a href="/admin" class="btn btn-secondary mt-3">← Назад к админке</a>
+<%- include('../partials/footer') %>
