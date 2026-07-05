@@ -10,8 +10,17 @@ markdown
 - **Аутентификация:** bcryptjs + express-session
 - **Шаблонизатор:** EJS, Bootstrap 5
 - **API погоды:** OpenWeatherMap (геокодирование + прогноз)
-- **Качество кода:** Code Climate / Qlty (будет добавлено)
-- **Деплой:** будет настроен на Render / Railway / другой платформе
+- **CI/CD:** GitHub Actions + Qlty (анализ качества)
+- **Деплой:** Render
+
+## Деплой
+
+Приложение доступно по адресу:  
+[https://weather-app-hjbv.onrender.com](https://weather-app-hjbv.onrender.com)
+
+## Качество кода
+
+[![Maintainability](https://qlty.sh/gh/Kostik2764/projects/weather-app/maintainability.svg)](https://qlty.sh/gh/Kostik2764/projects/weather-app)
 
 ## Локальный запуск
 
@@ -37,14 +46,8 @@ npm start
 
 Тестовые данные для входа
 Роль	Логин	Пароль
-Администратор	admin	значение ADMIN_PASSWORD из .env
+Администратор	admin	значение ADMIN_PASSWORD из .env (сейчас по умолчанию логин admin пароль admin123)
 Обычные пользователи регистрируются самостоятельно через форму регистрации.
-
-Деплой (скоро)
-После настройки деплоя здесь появится ссылка на работающий сайт.
-
-Качество кода 
-[![Coverage](https://qlty.sh/gh/Kostik2764/weather-app/coverage.svg)](https://qlty.sh/gh/Kostik2764/weather-app)
 
 Возможности
 Регистрация и вход пользователей
@@ -64,3 +67,6 @@ npm start
 просмотр избранных городов любого пользователя
 
 удаление пользователей
+
+Лицензия
+Проект создан в учебных целях.
