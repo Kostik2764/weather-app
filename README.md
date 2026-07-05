@@ -43,9 +43,8 @@ npm start
 Деплой (скоро)
 После настройки деплоя здесь появится ссылка на работающий сайт.
 
-Качество кода (скоро)
-После подключения Code Climate или Qlty здесь появится бейдж:
-
+Качество кода 
+[![Coverage](https://qlty.sh/gh/Kostik2764/weather-app/coverage.svg)](https://qlty.sh/gh/Kostik2764/weather-app)
 
 Возможности
 Регистрация и вход пользователей

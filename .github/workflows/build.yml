@@ -36,3 +36,5 @@ jobs:
         run: qlty init --yes
       - name: Run Qlty quality check
         run: qlty check
+       - name: Upload coverage to Qlty
+        run: qlty upload-coverage --token ${{ secrets.QLTY_COVERAGE_TOKEN }}
